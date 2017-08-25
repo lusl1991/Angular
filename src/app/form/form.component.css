@@ -1,0 +1,11 @@
+.DEMO-form-container {
+    width: 520px;
+    margin: 50px auto;
+}
+form .ng-valid[required] {
+    border: 2px solid #41A947; /* green */
+}
+
+form .ng-invalid {
+    border: 2px solid #a94442; /* red */
+}

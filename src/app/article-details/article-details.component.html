@@ -1,0 +1,21 @@
+<div class="articledetails" *ngIf="blog">
+  <h2>详细内容</h2>
+  <div class="content">
+    <div class="row">
+      <span>ID</span>
+      <span>{{blog.id}}</span>
+    </div>
+    <div class="row">
+      <span>Title</span>
+      <span>{{blog.title}}</span>
+    </div>
+    <div class="row">
+      <span>profile</span>
+      <span>{{blog.profile}}</span>
+    </div>
+    <div class="row">
+      <button class="btn" (click)="back()">返回列表</button>
+      <button class="btn" (click)="doComment()">评论</button>
+    </div>
+</div>
+<router-outlet></router-outlet>

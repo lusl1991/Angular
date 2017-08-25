@@ -1,0 +1,32 @@
+<!-- Bootstrap-->
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<div class="DEMO-form-container">
+  <h1>This is A Awesome Form!</h1>
+  <p class="user-msg">UserInfo:{{userInfo}}</p>
+  <form class="DEMO-form" *ngIf="active" (ngSubmit)="submit()" #userForm="ngForm">
+      <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" [(ngModel)]="user.username" required #spy #username="ngModel" ng-pattern="/^[A-Za-z0-9]{5,12}$/" name="username" class="form-control" id="username" placeholder="Username">
+          <p [hidden]="username.pristine || username.valid" class="alert alert-danger">用户名为5-12位字母或数字!</p>
+      </div>
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" [(ngModel)]="user.email" required #spy #email="ngModel" name="email" class="form-control" id="email" placeholder="Email">
+          <p [hidden]="email.pristine || email.valid" class="alert alert-danger">邮箱格式错误!</p>
+      </div>
+      <div class="form-group">
+          <label for="motto">Motto</label>
+          <input type="text" [(ngModel)]="user.motto" required #spy #motto="ngModel" ng-maxlength="24" name="motto" class="form-control" id="motto" placeholder="Motto">
+          <p [hidden]="motto.pristine || motto.valid" class="alert alert-danger">座右铭长度不能超过24!</p>
+      </div>
+      <div class="form-group">
+          <label for="favorite">Favorite fruit</label>
+          <select id="favorite" [(ngModel)]="user.favorite" required #spy #favorite="ngModel" name="favorite" class="form-control">
+              <option *ngFor="let list of favoriteList" [value]="list">{{list}}</option>
+          </select>
+          <p [hidden]="favorite.pristine || favorite.valid" class="alert alert-danger">请选择兴趣爱好!</p>
+      </div>
+      <button [disabled]="!userForm.form.valid" type="submit" class="btn btn-info">提交</button>
+      <button type="button" class="btn btn-success" (click)="addUser()">添加</button>
+  </form>
+</div>
